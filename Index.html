@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Geolocalização HTML5</title>
+	<script>
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				alert("Geolocalização não é suportada pelo seu navegador.");
+			}
+		}
+
+		function showPosition(position) {
+			alert("Latitude: " + position.coords.latitude +
+			"\nLongitude: " + position.coords.longitude);
+		}
+	</script>
+</head>
+<body onload="getLocation();">
+	<p>Aguardando a localização...</p>
+</body>
+</html>
