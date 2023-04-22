@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Geolocalização HTML5</title>
-	<script>
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} else {
-				alert("Geolocalização não é suportada pelo seu navegador.");
-			}
-		}
-
-		function showPosition(position) {
-			alert("Latitude: " + position.coords.latitude +
-			"\nLongitude: " + position.coords.longitude);
-		}
-	</script>
-</head>
-<body onload="getLocation();">
-	<p>Aguardando a localização...</p>
+<body>
+<p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+<button onclick="getLocation()">Clique Aqui</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude; 
+  }
+</script>
 </body>
 </html>
